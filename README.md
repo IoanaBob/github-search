@@ -1,24 +1,32 @@
-# README
+# github-search
+Application that pulls github repository information based on a search criteria.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
+### With Docker
+- Start container: `docker-compose up --build`
+- Exec into container: `docker exec -it github-search_web_1 bash`
 
-Things you may want to cover:
+### Locally
+Dependencies
+- Ruby version: 2.7.1
 
-* Ruby version
+Install the gems
+```
+bundle
+```
 
-* System dependencies
+Create and migrate the DB
+```
+rake db:create
+rake db:migrate
+```
 
-* Configuration
+Run the tests
+```
+bundle exec rspec
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Start the server
+```
+rails s
+```
