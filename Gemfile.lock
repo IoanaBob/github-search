@@ -228,6 +228,9 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    will_paginate (3.3.0)
+    will_paginate-bulma (1.0.0)
+      will_paginate (>= 3.0.3)
     zeitwerk (2.3.0)
 
 PLATFORMS
@@ -254,6 +257,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
+  will_paginate-bulma
 
 RUBY VERSION
    ruby 2.7.1p83

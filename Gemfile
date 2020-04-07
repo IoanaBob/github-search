@@ -25,6 +25,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'httparty'
 
 gem "bulma-rails", "~> 0.8.0"
+gem "will_paginate-bulma"
 
 group :development, :test do
   # developer tools

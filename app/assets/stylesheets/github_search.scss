@@ -1,0 +1,23 @@
+// Place all the styles related to the GithubSearch controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container {
+  .level {
+    margin: 20px 0;
+    .level-item {
+      .level-description {
+        padding: 0 10px;
+      }
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+    }
+
+    .control {
+      padding: 0 10px;
+    }
+  }
+}

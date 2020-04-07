@@ -1,0 +1,73 @@
+
+<div class="container">
+  <h2 class="title is-2">Github repositories</h2>
+  <div class="level">
+    <%= form_for :github_search, url: url_for(github_search_index_path()), method: "GET" do |form| %>
+      <span class="level-item">
+        <%= 
+          form.text_field(
+            "search",
+            placeholder: "Search Repository name",
+            class: "input",
+            value: @params_with_defaults[:search]
+          )
+        %>
+      </span>
+      <span class="level-item">
+        <span class="level-description">Sort by</span>
+        <div class="select">
+          <%= 
+            form.select(
+              "sort", 
+              options_for_select([["Stars", "stars"], ["Time created", "created"]], @params_with_defaults[:sort]),
+            )
+          %>
+        </div>
+      </span>
+      <span class="level-item">
+        <span class="level-description">Order by</span>
+        <div class="select">
+          <%= 
+            form.select(
+              "order", 
+              options_for_select([["Descendent", "desc"], ["Ascendent", "asc"]], @params_with_defaults[:order]),
+            ) 
+          %>
+        </div>
+      </span>
+      <span class="level-item">
+        <div class="control">
+          <%= form.submit("search", class: "button is-primary") %>
+        </div>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <th><%= "Name" %></th>
+      <th><%= "Full Name" %></th>
+      <th><%= "Owner Name" %></th>
+      <th><%= "Description" %></th>
+      <th><%= "Language" %></th>
+      <th><%= "Stars" %></th>
+    </thead>
+    
+    <% @github_repos.each do |repo| %>
+      <tr>
+        <td><%= repo.name %></td>
+        <td><%= repo.full_name %></td>
+        <td><%= repo.owner_name %></td>
+        <td><%= repo.description %></td>
+        <td><%= repo.language %></td>
+        <td><%= repo.stars %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div class="level">
+    
+  </div>
+</div>
