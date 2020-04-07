@@ -17,7 +17,7 @@ class GithubRepo
 
     def github_search_params_with_defaults(params)
       params ||= {}
-      SEARCH_DEFAULTS.merge(params)
+      SEARCH_DEFAULTS.merge(params.to_h.symbolize_keys)
     end
 
     private
