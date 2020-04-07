@@ -85,4 +85,29 @@ RSpec.describe GithubRepo do
       end
     end
   end
+
+  describe '#github_search_params_with_defaults' do
+    subject { described_class.github_search_params_with_defaults(search_params) }
+    context 'with no search parameters' do
+      let(:search_params) { {} }
+
+      let(:expected_result) { { order: 'desc', page: 1, per_page: 50, sort: 'stars' } }
+
+      it { is_expected.to eq(expected_result) }
+    end
+
+    context 'with some params defined' do
+      let(:search_params) { { order: 'asc', sort: 'created' } }
+
+      let(:expected_result) { { order: 'asc', page: 1, per_page: 50, sort: 'created' } }
+
+      it { is_expected.to eq(expected_result) }
+    end
+
+    context 'with all params defined' do
+      let(:search_params) { { order: 'asc', page: 1, per_page: 50, sort: 'created' } }
+
+      it { is_expected.to eq(search_params) }
+    end
+  end
 end

@@ -15,6 +15,11 @@ class GithubRepo
       map_github_repos_response(response_body['items'])
     end
 
+    def github_search_params_with_defaults(params)
+      params ||= {}
+      SEARCH_DEFAULTS.merge(params)
+    end
+
     private
 
     def github_search_url(params)
@@ -34,16 +39,6 @@ class GithubRepo
           language: repo['language'],
           stars: repo['stargazers_count']
         )
-      end
-    end
-
-    def github_search_params_with_defaults(params)
-      params ||= {}
-      params.tap do |param|
-        param[:sort] ||= SEARCH_DEFAULTS[:sort]
-        param[:order] ||= SEARCH_DEFAULTS[:order]
-        param[:page] ||= SEARCH_DEFAULTS[:page]
-        param[:per_page] ||= SEARCH_DEFAULTS[:per_page]
       end
     end
   end
