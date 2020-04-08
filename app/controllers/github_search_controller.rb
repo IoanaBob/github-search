@@ -9,6 +9,6 @@ class GithubSearchController < ApplicationController
   private
 
   def github_search_params
-    params.permit[:github_search] && params[:github_search]&.permit(:search, :sort, :order)
+    params[:github_search]&.permit(:search, :sort, :order)
   end
 end
